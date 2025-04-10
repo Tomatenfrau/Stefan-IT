@@ -105,7 +105,7 @@ function createaccount() {
     } 
     //Condition 2
 
-    if (!/\d/.test(inputpassw)) {
+    if (!/\d/.test(inputpassw.value)) {
         alert("No numbers were used in your Password")
         return
     }
@@ -143,11 +143,11 @@ function createaccount() {
 
 
 function updateconditions() {
-    condmatch.checked = inputpassw.value == inputpassw2.value
-    condnumb.checked = 0
-    condspeccharact.checked = 0
-    condupdowncasel.checked = 0
-    condmin8char.checked = 0
+    condmatch.checked = inputpassw.value === inputpassw2.value;
+    condnumb.checked = /\d/.test(inputpassw.value);
+    condspeccharact.checked = /[!@#$%^&*(),.?":{}|<>]/.test(inputpassw.value);
+    condupdowncasel.checked = /[a-z]/.test(inputpassw.value) && /[A-Z]/.test(inputpassw.value);
+    condmin8char.checked = inputpassw.value.length >= 8;
 }
 
 
